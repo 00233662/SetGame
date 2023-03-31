@@ -102,13 +102,27 @@ int getIndexFromNumber(String card) {
 }
 
 boolean isSet(int[] card1, int[] card2, int[] card3) {
-    for (int feature = 0; feature < NUM_FEATURES; feature++) {
-        if (!((card1[feature] == card2[feature] && card2[feature] == card3[feature]) ||
-            (card1[feature] != card2[feature] && card2[feature] != card3[feature] && card1[feature] != card3[feature]))) {
-            return false;
-        }
+  if (isCardEmpty(card1) || isCardEmpty(card2) || isCardEmpty(card3)) {
+    return false;
+  }
+
+  final int NUM_FEATURES = 4;
+  for (int feature = 0; feature < NUM_FEATURES; feature++) {
+    if (!((card1[feature] == card2[feature] && card2[feature] == card3[feature]) ||
+        (card1[feature] != card2[feature] && card2[feature] != card3[feature] && card1[feature] != card3[feature]))) {
+      return false;
     }
-    return true;
+  }
+  return true;
+}
+
+boolean isCardEmpty(int[] card) {
+  for (int feature : card) {
+    if (feature != 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 boolean isValidSet(int[][] selectedCards) {

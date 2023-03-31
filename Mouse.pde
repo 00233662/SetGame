@@ -40,7 +40,6 @@ void processSelectedCards() {
   if (isValidSet(selectedCards)) {
     println("Valid set!");
     moveSelectedCardsToGraveyard();
-    updateSetCounts();
   } else {
     println("Invalid set!");
   }

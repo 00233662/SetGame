@@ -47,7 +47,3 @@ int[][] selectedCards = new int[3][NUM_FEATURES];
 int deckIndex = 0;
 boolean[] selectedCardIndices = new boolean[12];
 int numSelectedCards = 0;
-
-int setsOnBoard = 0;
-int setsCollected = 0;
-int setsLeft = 0;

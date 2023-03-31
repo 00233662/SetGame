@@ -13,7 +13,6 @@ void setup() {
   setupCardValues();
   setupCards();
   dealCards();
-  calculateSets();
 }
 
 void draw() {

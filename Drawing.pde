@@ -42,10 +42,14 @@ void displaySelection(int col, int row) {
 }
 
 void displaySetCounts() {
+  int setCount = countSetsOnBoard();
+  int cardsInGraveyard = countCardsInGraveyard();
+  int cardsLeftInDeck = countCardsLeftInDeck();
+  
   textSize(20);
   fill(HAN_ROZE);
   textAlign(RIGHT);
-  text("Sets on board: " + setsOnBoard, screenWidth - 20, 20);
-  text("Sets collected: " + setsCollected, screenWidth - 20, 50);
-  text("Sets left: " + setsLeft, screenWidth - 20, 80);
+  text("Sets on board: " + setCount, screenWidth - 20, 20);
+  text("Cards in graveyard: " + cardsInGraveyard, screenWidth - 20, 50);
+  text("Cards left in deck: " + cardsLeftInDeck, screenWidth - 20, 80);
 }
