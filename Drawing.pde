@@ -41,14 +41,14 @@ void displayCardOrPlaceholder(int index, int col, int row) {
 
 
 void displayCard(PImage img, int col, int row) {
-  image(img, col * (cardWidth + 10) + 50, row * (cardHeight + 10) + 50, cardWidth, cardHeight);
+  image(img, col * (cardWidth + 10) + 75, row * (cardHeight + 10) + 50, cardWidth, cardHeight);
 }
 
 void displaySelection(int col, int row) {
   stroke(HAN_ROZE);
   strokeWeight(5);
   noFill();
-  rect(col * (cardWidth + 10) + 50, row * (cardHeight + 10) + 50, cardWidth, cardHeight);
+  rect(col * (cardWidth + 10) + 75, row * (cardHeight + 10) + 50, cardWidth, cardHeight);
 }
 
 void displaySetCounts() {
@@ -59,9 +59,9 @@ void displaySetCounts() {
   textSize(20);
   fill(TEXT_1);
   textAlign(RIGHT);
-  text("Sets on board: " + setCount, screenWidth - 20, 20);
-  text("Cards in graveyard: " + cardsInGraveyard, screenWidth - 20, 50);
-  text("Cards left in deck: " + cardsLeftInDeck, screenWidth - 20, 80);
+  text("Sets on board: " + setCount, screenWidth - 70, 70);
+  text("Cards in graveyard: " + cardsInGraveyard, screenWidth - 70, 100);
+  text("Cards left in deck: " + cardsLeftInDeck, screenWidth - 70, 130);
 }
 
 void displayGameOverMessage() {

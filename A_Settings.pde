@@ -30,8 +30,8 @@ final int RULES = 4;
 final int LEADERBOARD = 5;
 
 // Kleuren die gebruikt worden voor het rooster, menu's, tekst en de HAN-roze accentkleur
-final color TABLE_COLOR_1 = #946678; //
-final color TABLE_COLOR_2 = #f7b3cc; //
+final color TABLE_COLOR_1 = #f7b3cc; //
+final color TABLE_COLOR_2 = #e50056; //
 final color MENU_COLOR = #000000; // Black
 final color HAN_ROZE = #e50056; //HAN roze
 final color TEXT_1 = #000000; // Zwart
