@@ -127,3 +127,13 @@ void updateCardFeatures(int index, String card) {
   }
   board[index] = cardFeatures;
 }
+
+boolean isGameEnded() {
+  if (countCardsLeftInDeck() == 0) {
+    int setsOnBoard = countSetsOnBoard();
+    if (setsOnBoard == 0) {
+      return true;
+    }
+  }
+  return false;
+}

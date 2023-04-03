@@ -1,3 +1,13 @@
+void drawTable() {
+  background(TABLE_COLOR_1);
+  noStroke();
+  fill(TABLE_COLOR_2);
+  rect(0, 0, MARGIN * 4, screenHeight);
+  rect(screenWidth, 0, -MARGIN * 4, screenHeight);
+}
+
+
+
 void displayBoard() {
   for (int i = 0; i < gridRows; i++) {
     for (int j = 0; j < gridCols; j++) {
@@ -47,9 +57,16 @@ void displaySetCounts() {
   int cardsLeftInDeck = countCardsLeftInDeck();
   
   textSize(20);
-  fill(HAN_ROZE);
+  fill(TEXT_1);
   textAlign(RIGHT);
   text("Sets on board: " + setCount, screenWidth - 20, 20);
   text("Cards in graveyard: " + cardsInGraveyard, screenWidth - 20, 50);
   text("Cards left in deck: " + cardsLeftInDeck, screenWidth - 20, 80);
+}
+
+void displayGameOverMessage() {
+  textAlign(CENTER, CENTER);
+  textSize(32);
+  fill(TEXT_1);
+  text("Game Over", screenWidth / 2, screenHeight / 2);
 }
