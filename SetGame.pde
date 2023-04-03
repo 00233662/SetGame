@@ -18,10 +18,6 @@ void setup() {
 }
 
 void draw() {
-  drawTable();
-  displayBoard();
-  displaySetCounts();
-  
   if(screen == MENU)
     screenMenu();
     

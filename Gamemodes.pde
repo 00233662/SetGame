@@ -7,5 +7,12 @@ screen 4 = Leaderboard
 #########################*/
 
 void playSetGame() {
-  
+  drawTable();
+  displayBoard();
+  displaySetCounts();
+  if(gameEnded) {
+    displayGameOverMessage();
+  } else {
+    gameEnded = isGameEnded();
+  }
 }

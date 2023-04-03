@@ -59,15 +59,15 @@ boolean usingShades = false; // veranderen voor de 27 of 81 kaart versie
 boolean gameEnded = false; // Einde van de game
 
 
-int cardWidth = 150;
-int cardHeight = 100;
+int cardWidth = screenWidth / 6;
+int cardHeight = (cardWidth / 3) * 2;
 int gridRows = 3;
 int gridCols = 3;
 
 ArrayList<String> uniqueCards = new ArrayList<String>();
-int[][] board = new int[12][NUM_FEATURES];
+int[][] board = new int[15][NUM_FEATURES];
 ArrayList<String> graveyard = new ArrayList<String>();
 int[][] selectedCards = new int[3][NUM_FEATURES];
 int deckIndex = 0;
-boolean[] selectedCardIndices = new boolean[12];
+boolean[] selectedCardIndices = new boolean[15];
 int numSelectedCards = 0;
