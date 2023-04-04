@@ -5,6 +5,8 @@ screen 2 = Games
 screen 3 = Rules
 screen 4 = Leaderboard
 #########################*/
+boolean hintGiven = true;
+
 
 void playSetGame() {
   drawTable();

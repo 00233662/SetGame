@@ -13,6 +13,10 @@ float[][] buttonsMenu = {
   {screenWidth / 2, screenHeight / 2 + MARGIN * 3 + MENU_BUTTONHEIGHT * 3, MENU_BUTTONWIDTH, MENU_BUTTONHEIGHT}
 };
 
+float[][] buttonsInGame = {
+  
+};
+
 void drawButton(int buttonIndex, float x, float y, float width, float height) {
   image(buttonImages[buttonIndex], x - width / 2, y - height / 2, width, height);
 }

@@ -138,3 +138,36 @@ boolean validFeature(int[][] cards, int featureIndex) {
   return (cards[0][featureIndex] == cards[1][featureIndex] && cards[1][featureIndex] == cards[2][featureIndex]) ||
          (cards[0][featureIndex] != cards[1][featureIndex] && cards[1][featureIndex] != cards[2][featureIndex] && cards[0][featureIndex] != cards[2][featureIndex]);
 }
+
+void giveHint() {
+  resetSelection();
+
+  int[] cardIndices = findSet();
+  
+  if (cardIndices != null) {
+    selectedCardIndices[cardIndices[0]] = true;
+    selectedCardIndices[cardIndices[1]] = true;
+    numSelectedCards = 2;
+    hintGiven = true;
+  }
+}
+
+int[] findSet() {
+  for (int card1 = 0; card1 < board.length; card1++) {
+    for (int card2 = 0; card2 < board.length; card2++) {
+      if (Arrays.equals(board[card1], board[card2])) {
+        continue;
+      }
+      for (int card3 = 0; card3 < board.length; card3++) {
+        if (Arrays.equals(board[card2], board[card3])) {
+          continue;
+        }
+        int[][] cardsCombination = { board[card1], board[card2], board[card3] };
+        if (isValidSet(cardsCombination)) {
+          return new int[]{ card1, card2 };
+        }
+      }
+    }
+  }
+  return null;
+}
