@@ -1,8 +1,72 @@
 void mousePressed() {
+  if (screen == 0) { 
+    for (int buttonIndex = 0; buttonIndex < 4; buttonIndex++) {
+      float x = buttonsMenu[buttonIndex][0];
+      float y = buttonsMenu[buttonIndex][1];
+      float width = MENU_BUTTONWIDTH;
+      float height = MENU_BUTTONHEIGHT;
+
+      if (buttonPressed(x, y, width, height)) {
+        switch (buttonIndex) {
+          case 0:
+            screen = 2;
+            break;
+          case 1:
+            screen = 1;
+            break;
+          case 2:
+            screen = 4;
+            break;
+          case 3:
+            exit();
+            break;
+        }
+      }
+    }
+  } else if (screen == 1) {
+    for (int buttonIndex = 0; buttonIndex < 4; buttonIndex++) {
+      float x = buttonsMenu[buttonIndex][0];
+      float y = buttonsMenu[buttonIndex][1];
+      float width = MENU_BUTTONWIDTH;
+      float height = MENU_BUTTONHEIGHT;
+  
+      if (buttonPressed(x, y, width, height)) {
+        switch (buttonIndex) {
+          case 0:
+            screen = 2;
+            break;
+          case 1:
+            screen = 3;
+            break;
+          case 2:
+            screen = 5;
+            break;
+          case 3:
+            screen = 0;
+            break;
+        }
+      }
+    }
+  } else if (screen == 2) {
+    handleCardSelection();
+  } else if (screen == 3) {
+    handleCardSelection();
+  } else if (screen == 4 || screen == 5) {
+    float x = buttonsMenu[4][0];
+    float y = buttonsMenu[4][1];
+    float width = buttonsMenu[4][2];
+    float height = buttonsMenu[4][3];
+    
+    if (buttonPressed(x, y, width, height)) {
+      screen = 0;
+    }
+  }
+}
+
+void handleCardSelection() {
   int[] clickedCell = getClickedCell();
   int clickedRow = clickedCell[0];
   int clickedCol = clickedCell[1];
-
   if (isValidCell(clickedRow, clickedCol)) {
     int clickedIndex = clickedRow * gridCols + clickedCol;
     handleCardSelection(clickedIndex);
@@ -12,6 +76,7 @@ void mousePressed() {
     processSelectedCards();
   }
 }
+
 
 int[] getClickedCell() {
   int clickedRow = (mouseY - 50) / (cardHeight + 10);

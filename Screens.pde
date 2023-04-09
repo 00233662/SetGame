@@ -17,7 +17,9 @@ void screenMenu() {
   text("Set Game", screenWidth / 2, MENUHEIGHT); 
   
   for (int buttonIndex = 0; buttonIndex < 4; buttonIndex++) {
-    drawButton(buttonIndex, buttonsMenu[buttonIndex][0], buttonsMenu[buttonIndex][1], buttonsMenu[buttonIndex][2], buttonsMenu[buttonIndex][3]);
+    float x = buttonsMenu[buttonIndex][0];
+    float y = buttonsMenu[buttonIndex][1];
+    drawButton(buttonIndex, x, y, MENU_BUTTONWIDTH, MENU_BUTTONHEIGHT);
   }
 }
 
@@ -30,7 +32,9 @@ void screenGameMode() {
   text("Choose your gamemode", screenWidth / 2, MENUHEIGHT);
   
   for (int buttonIndex = 0; buttonIndex < 4; buttonIndex++) {
-    drawButton(buttonIndex + 4, buttonsMenu[buttonIndex][0], buttonsMenu[buttonIndex][1], buttonsMenu[buttonIndex][2], buttonsMenu[buttonIndex][3]);
+    float x = buttonsMenu[buttonIndex][0];
+    float y = buttonsMenu[buttonIndex][1];
+    drawButton(buttonIndex + 4, x, y, MENU_BUTTONWIDTH, MENU_BUTTONHEIGHT);
   }
 }
   
@@ -47,7 +51,7 @@ void screenRules() {
   for (int i = 0; i < rules.length; i++) {
     text(rules[i], screenWidth / 2, startY + i * lineHeight);
   }
-  drawButton(7, screenWidth / 2, screenHeight * 0.85, screenWidth / 4, screenHeight / 10);
+  drawButton(7, buttonsMenu[4][0], buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
 }
 
 
@@ -65,5 +69,5 @@ void screenLeaderBoard() {
   for (int i = 0; i < Leaderboard.length; i++) {
     text(Leaderboard[i], screenWidth / 2, startY + i * lineHeight);
   }
-  drawButton(7, screenWidth / 2, screenHeight * 0.85, screenWidth / 4, screenHeight / 10);
+  drawButton(7, buttonsMenu[4][0], buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
 }

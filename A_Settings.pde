@@ -54,7 +54,6 @@ final float TEXT_TITEL = 0.225 * screenHeight;
 Global variables
 */
 
-// Boolean om aan te geven of er wel of niet gebruik wordt gemaakt van shading
 boolean usingShades = false; // veranderen voor de 27 of 81 kaart versie
 boolean gameEnded = false; // Einde van de game
 
