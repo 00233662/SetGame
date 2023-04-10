@@ -36,3 +36,7 @@ int countCardsInGraveyard() {
 int countCardsLeftInDeck() {
   return uniqueCards.size() - deckIndex;
 }
+
+void resetTimer() {
+  startTime = millis();
+}

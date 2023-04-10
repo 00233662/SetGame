@@ -65,11 +65,6 @@ void moveSelectedCardsToGraveyard() {
       removedCards = processSelectedCard(i, removedCards);
     }
   }
-  for (String card : graveyard) {
-    if (card != null) {
-      uniqueCards.remove(card);
-    }
-  }
 }
 
 int processSelectedCard(int index, int removedCards) {

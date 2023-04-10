@@ -31,7 +31,6 @@ void handleCardSelection() {
     int clickedIndex = clickedRow * gridCols + clickedCol;
     handleCardSelection(clickedIndex);
   }
-
   if (numSelectedCards == 3) {
     processSelectedCards();
   }

@@ -11,6 +11,7 @@ void initializeSetGame() {
   gameEnded = false;
   hintGiven = false;
   uniqueCards.clear();
+  resetTimer();
   graveyard.clear();
   boolean fourFeatures = false;
 
@@ -26,7 +27,7 @@ void initializeSetGame() {
     deckIndex = 0; 
     dealCards(); 
 
-    while (countSetsOnBoard() == 0 && deckIndex < uniqueCards.size()) {
+    while (countSetsOnBoard() == 0) {
       uniqueCards.clear();
       setupCards(); 
       deckIndex = 0; 
@@ -40,6 +41,8 @@ void playSetGame() {
   displayBoard();
   displaySetCounts();
   drawButtonsInGame();
+  elapsedTime = millis() - startTime;
+  displayTimer();
   
   if(gameEnded) {
     displayGameOverMessage();

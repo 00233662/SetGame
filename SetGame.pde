@@ -14,7 +14,7 @@ void setup() {
   setupCards();
   setupButtons();
   dealCards();
-  
+  startTime = millis();
 }
 
 /*#########################

@@ -19,7 +19,7 @@ final int NUM_CARDS = NUM_FEATURES * NUM_OPTIONS * NUM_OPTIONS * NUM_OPTIONS;
 
 // Scherm breedte en hoogte
 final int screenWidth = 900;
-final int screenHeight = 750;
+final int screenHeight = 700;
 
 // Game schermen
 final int MENU = 0;
@@ -57,6 +57,9 @@ Global variables
 boolean usingShades = false; // veranderen voor de 27 of 81 kaart versie
 boolean gameEnded = false; // Einde van de game
 boolean hintGiven = true; 
+int startTime;
+int elapsedTime;
+
 
 
 int cardWidth = screenWidth / 6;
@@ -65,7 +68,7 @@ int gridRows = 3;
 int gridCols = 3;
 
 ArrayList<String> uniqueCards = new ArrayList<String>();
-int[][] board = new int[15][NUM_FEATURES];
+int[][] board = new int[9][NUM_FEATURES];
 ArrayList<String> graveyard = new ArrayList<String>();
 int[][] selectedCards = new int[3][NUM_FEATURES];
 int deckIndex = 0;
