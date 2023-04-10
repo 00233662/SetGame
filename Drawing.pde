@@ -1,3 +1,5 @@
+
+
 void drawTable() {
   background(TABLE_COLOR_1);
   noStroke();
@@ -14,7 +16,7 @@ void displayBoard() {
       int index = i * gridCols + j;
       String card = getCardAtIndex(index);
       if (card != null && !graveyard.contains(card)) {
-        displayCardOrPlaceholder(index, j, i);
+        displayCards(index, j, i);
       }
     }
   }
@@ -28,7 +30,7 @@ String getCardAtIndex(int index) {
   }
 }
 
-void displayCardOrPlaceholder(int index, int col, int row) {
+void displayCards(int index, int col, int row) {
   String card = getCardAtIndex(index);
   if (card != null && !graveyard.contains(card)) {
     PImage img = loadImage(card + ".png");
