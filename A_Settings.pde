@@ -19,7 +19,7 @@ final int NUM_CARDS = NUM_FEATURES * NUM_OPTIONS * NUM_OPTIONS * NUM_OPTIONS;
 
 // Scherm breedte en hoogte
 final int screenWidth = 900;
-final int screenHeight = 800;
+final int screenHeight = 750;
 
 // Game schermen
 final int MENU = 0;
@@ -56,6 +56,7 @@ Global variables
 
 boolean usingShades = false; // veranderen voor de 27 of 81 kaart versie
 boolean gameEnded = false; // Einde van de game
+boolean hintGiven = true; 
 
 
 int cardWidth = screenWidth / 6;

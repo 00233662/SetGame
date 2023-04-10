@@ -59,9 +59,9 @@ void displaySetCounts() {
   textSize(20);
   fill(TEXT_1);
   textAlign(RIGHT);
-  text("Sets on board: " + setCount, screenWidth - 70, 70);
-  text("Cards in graveyard: " + cardsInGraveyard, screenWidth - 70, 100);
-  text("Cards left in deck: " + cardsLeftInDeck, screenWidth - 70, 130);
+  text("Sets on board: " + setCount, screenWidth * 0.89, screenHeight * 0.1);
+  text("Cards in graveyard: " + cardsInGraveyard, screenWidth * 0.89, screenHeight * 0.14);
+  text("Cards left in deck: " + cardsLeftInDeck, screenWidth * 0.89, screenHeight * 0.18);
 }
 
 void displayGameOverMessage() {
