@@ -17,6 +17,15 @@ void setup() {
   
 }
 
+/*#########################
+screen MENU = 0
+screen GAMEMODE = 1
+screen CARDS27SET = 2
+screen CARDS81SET = 3
+screen RULES = 4
+screen LEADERBOARD = 5
+#########################*/
+
 void draw() {
   if(screen == MENU)
     screenMenu();

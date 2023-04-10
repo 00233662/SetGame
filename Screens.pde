@@ -1,13 +1,13 @@
 /*#########################
-screen 0 = Main menu
-screen 1 = Game Modes
-screen 2 = 27 Set Game
-screen 3 = 81 Set Game
-screen 4 = Rules
-screen 5 = Leaderboard
+screen MENU = 0
+screen GAMEMODE = 1
+screen CARDS27SET = 2
+screen CARDS81SET = 3
+screen RULES = 4
+screen LEADERBOARD = 5
 #########################*/
 
-int screen = 0;
+int screen = MENU;
 
 void screenMenu() {
   drawTable();

@@ -1,14 +1,24 @@
+/*#########################
+screen MENU = 0
+screen GAMEMODE = 1
+screen CARDS27SET = 2
+screen CARDS81SET = 3
+screen RULES = 4
+screen LEADERBOARD = 5
+#########################*/
+
 void mousePressed() {
-  if (screen == 0) { 
+  if (screen == MENU) { 
     handleMenuButtons();
-  } else if (screen == 1) {
+  } else if (screen == GAMEMODE) {
     handleModeButtons();
-  } else if (screen == 2) {
+  } else if (screen == CARDS27SET) {
     handleInGameButtons();
     handleCardSelection();
-  } else if (screen == 3) {
+  } else if (screen == CARDS81SET) {
+    handleInGameButtons();
     handleCardSelection();
-  } else if (screen == 4 || screen == 5) {
+  } else if (screen == RULES || screen == LEADERBOARD) {
     handleBack4And5Buttons();
   }
 }
@@ -37,13 +47,13 @@ void handleMenuButtons() {
     if (buttonPressed(x, y, width, height)) {
       switch (buttonIndex) {
         case 0:
-          screen = 2;
+          screen = CARDS27SET;
           break;
         case 1:
-          screen = 1;
+          screen = GAMEMODE;
           break;
         case 2:
-          screen = 4;
+          screen = RULES;
           break;
         case 3:
           exit();
@@ -52,6 +62,7 @@ void handleMenuButtons() {
     }
   }
 }
+
 
 void handleModeButtons() {
   for (int buttonIndex = 0; buttonIndex < 4; buttonIndex++) {
@@ -63,16 +74,16 @@ void handleModeButtons() {
     if (buttonPressed(x, y, width, height)) {
       switch (buttonIndex) {
         case 0:
-          screen = 2;
+          screen = CARDS27SET;
           break;
         case 1:
-          screen = 3;
+          screen = CARDS81SET;
           break;
         case 2:
-          screen = 5;
+          screen = LEADERBOARD;
           break;
         case 3:
-          screen = 0;
+          screen = MENU;
           break;
       }
     }
@@ -86,7 +97,7 @@ void handleBack4And5Buttons() {
   float height = buttonsMenu[4][3];
 
   if (buttonPressed(x, y, width, height)) {
-    screen = 0;
+    screen = MENU;
   }
 }
 
@@ -106,7 +117,7 @@ void handleInGameButtons() {
           initializeSetGame();
           break;
         case 2:
-          screen = 0; // exit button
+          screen = MENU; // exit button
           break;
         case 3:
           giveHint(); // give hint
