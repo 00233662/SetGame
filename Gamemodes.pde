@@ -6,33 +6,20 @@ screen 3 = Rules
 screen 4 = Leaderboard
 #########################*/
 
-
 void initializeSetGame() {
   gameEnded = false;
   hintGiven = false;
   uniqueCards.clear();
   resetTimer();
   graveyard.clear();
-  boolean fourFeatures = false;
-
-  if (screen == CARDS27SET || screen == CARDS81SET) {
-    board = new int[9][NUM_FEATURES];
-    fourFeatures = false;
-    if (screen == CARDS81SET) {
-      fourFeatures = true;
-      gridRows = 4;
-      board = new int[12][NUM_FEATURES];
-    }
-    setupCards();
+  setupCards();
+  deckIndex = 0; 
+  dealCards(); 
+  if (countSetsOnBoard() == 0) {
+    uniqueCards.clear();
+    setupCards(); 
     deckIndex = 0; 
     dealCards(); 
-
-    while (countSetsOnBoard() == 0) {
-      uniqueCards.clear();
-      setupCards(); 
-      deckIndex = 0; 
-      dealCards(); 
-    }
   }
 }
 

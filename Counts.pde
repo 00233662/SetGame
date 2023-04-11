@@ -1,3 +1,4 @@
+
 int countSetsOnBoard() {
   int setCount = 0;
 

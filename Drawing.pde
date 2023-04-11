@@ -1,5 +1,4 @@
 
-
 void drawTable() {
   background(TABLE_COLOR_1);
   noStroke();
