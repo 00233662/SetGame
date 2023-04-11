@@ -61,7 +61,6 @@ int startTime;
 int elapsedTime;
 
 
-
 int cardWidth = screenWidth / 6;
 int cardHeight = (cardWidth / 3) * 2;
 int gridRows = 3;

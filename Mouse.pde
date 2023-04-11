@@ -115,7 +115,7 @@ void updateCardFeatures(int index, String card) {
 }
 
 boolean isGameEnded() {
-  if (countCardsLeftInDeck() == 0) {
+  if (countCardsLeftInDeck() == 0 || countSetsOnBoard() == 0)  {
     int setsOnBoard = countSetsOnBoard();
     if (setsOnBoard == 0) {
       return true;
