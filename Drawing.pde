@@ -78,7 +78,24 @@ void displayTimer() {
   textSize(24);
   fill(TEXT_1); 
   String timerText = nf(minutes, 2) + ":" + nf(seconds, 2);
-  text(timerText, screenWidth * 0.89, screenHeight * 0.30); 
+  text(timerText, screenWidth * 0.89, screenHeight * 0.3); 
+}
+
+void displayScore() {
+  textAlign(RIGHT);
+  textSize(24);
+  fill(TEXT_1);
+  String scoreText = "Score: " + playerScore;
+  text(scoreText, screenWidth * 0.89, screenHeight * 0.26);
+}
+
+void displayMessage() {
+  if (millis() < messageDisplayTime) {
+    textAlign(RIGHT);
+    textSize(32);
+    fill(TEXT_1);
+    text(showMessage, screenWidth * 0.87, screenHeight * 0.43);
+  }
 }
 
 void displayGameOverMessage() {

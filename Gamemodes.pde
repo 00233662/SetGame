@@ -13,23 +13,20 @@ void playSetGame() {
     uniqueCards.clear();
     resetTimer();
     graveyard.clear();
+    resetSelection();
     setupCards();
     deckIndex = 0;
+    playerScore = 0;
     dealCards();
-    if (countSetsOnBoard() == 0) {
-      uniqueCards.clear();
-      setupCards();
-      deckIndex = 0;
-      dealCards();
-    }
     gameInitialized = true;
   }
-
   drawTable();
   displayBoard();
   displaySetCounts();
+  displayScore();
+  displayMessage();
   drawButtonsInGame();
-
+  
   if (!stoppedTime) {
     elapsedTime = millis() - startTime;
   }

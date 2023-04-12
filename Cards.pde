@@ -143,14 +143,20 @@ void giveHint() {
   resetSelection();
 
   int[] cardIndices = findSet();
-  
+
   if (cardIndices != null) {
     selectedCardIndices[cardIndices[0]] = true;
     selectedCardIndices[cardIndices[1]] = true;
     numSelectedCards = 2;
     hintGiven = true;
+
+    if (!hintUsedForCurrentSet) {
+      playerScore = max(playerScore - 3, -3);
+      hintUsedForCurrentSet = true;
+    }
   }
 }
+
 
 int[] findSet() {
   for (int card1 = 0; card1 < board.length; card1++) {

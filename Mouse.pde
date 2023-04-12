@@ -24,13 +24,18 @@ void handleCardSelection(int clickedIndex) {
 
 void processSelectedCards() {
   if (isValidSet(selectedCards)) {
-    println("Valid set!");
+    showMessage = "Correct set!";
+    messageDisplayTime = millis() + 2500;
     moveSelectedCardsToGraveyard();
+    playerScore += 3;
+    hintUsedForCurrentSet = false;
   } else {
-    println("Invalid set!");
+    showMessage = "Incorrect set!";
+    messageDisplayTime = millis() + 2500;
   }
   resetSelection();
 }
+
 
 void selectCard(int clickedIndex) {
   selectedCards[numSelectedCards] = board[clickedIndex];
