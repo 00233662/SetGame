@@ -57,9 +57,11 @@ Global variables
 boolean usingShades = false; // veranderen voor de 27 of 81 kaart versie
 boolean gameEnded = false; // Einde van de game
 boolean hintGiven = true; 
+boolean gameInitialized = false;
 int startTime;
 int elapsedTime;
-
+boolean stoppedTime = false;
+boolean isPaused = false;
 
 int cardWidth = screenWidth / 6;
 int cardHeight = (cardWidth / 3) * 2;

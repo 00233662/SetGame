@@ -20,5 +20,3 @@ Here's how to play the game:
 5. If you can't find anymore sets you can click the +3 button for 3 more cards.
 
 6. The game ends when there are no cards in the deck or no sets on the table.
-
-7. Your points and time can you find on the leaderboard.

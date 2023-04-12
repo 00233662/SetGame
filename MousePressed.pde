@@ -24,6 +24,10 @@ void mousePressed() {
 }
 
 void handleCardSelection() {
+  if (isPaused) {
+    return;
+  }
+  
   int[] clickedCell = getClickedCell();
   int clickedRow = clickedCell[0];
   int clickedCol = clickedCell[1];
@@ -110,13 +114,20 @@ void handleInGameButtons() {
     if (buttonPressed(x, y, width, height)) {
       switch (buttonIndex) {
         case 0:
-          exit(); // Pauze
+          isPaused = !isPaused;
+          if (isPaused) {
+            stoppedTime = true;
+          } else {
+            stoppedTime = false;
+            startTime = millis() - elapsedTime;
+          }
           break;
         case 1:
-          initializeSetGame();
+          gameInitialized = false; // reset button
           break;
         case 2:
           screen = MENU; // exit button
+          gameInitialized = false;
           break;
         case 3:
           giveHint(); // give hint

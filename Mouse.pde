@@ -1,7 +1,7 @@
 
 int[] getClickedCell() {
   int clickedRow = (mouseY - 50) / (cardHeight + 10);
-  int clickedCol = (mouseX - 50) / (cardWidth + 10);
+  int clickedCol = (mouseX - 100) / (cardWidth + 10);
   return new int[]{clickedRow, clickedCol};
 }
 

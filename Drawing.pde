@@ -13,11 +13,17 @@ void displayBoard() {
       int index = i * gridCols + j;
       String card = getCardAtIndex(index);
       if (card != null && !graveyard.contains(card)) {
-        displayCards(index, j, i);
+        if (!isPaused) {
+          displayCards(index, j, i);
+        } else {
+          PImage img = loadImage("achterkant.png");
+          displayCard(img, j, i);
+        }
       }
     }
   }
 }
+
 
 String getCardAtIndex(int index) {
   try {
