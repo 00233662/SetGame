@@ -59,14 +59,13 @@ void screenLeaderBoard() {
   drawTable();
   String[] leaderboard = loadStrings("Overige/Leaderboard.txt");
   drawTable();
-  textSize(TEXT_16);
+  textSize(TEXT_20);
   textAlign(CENTER, CENTER);
   fill(TEXT_2);
 
   float lineHeight = TEXT_16;
   float startY = screenHeight * 0.1;
 
-  // Display the headers
   text("Player", screenWidth * 0.3, startY);
   text("Score", screenWidth * 0.5, startY);
   text("Time", screenWidth * 0.7, startY);
@@ -74,16 +73,20 @@ void screenLeaderBoard() {
   for (int i = 0; i < leaderboard.length; i++) {
     String[] data = split(leaderboard[i], ',');
 
-    // Make sure there are 3 elements in the data array
     if (data.length == 3) {
       String playerName = data[0].trim();
       String playerScore = data[1].trim();
       String playerTime = data[2].trim();
 
-      // Display the data in separate columns
+      var millis = Long.parseLong(playerTime);
+      var minutes = (millis / 1000) / 60;
+      var seconds = (millis / 1000) % 60;
+      String formattedTime = String.format("%02d:%02d", minutes, seconds);
+      
+      textSize(TEXT_16);
       text(playerName, screenWidth * 0.3, startY + (i + 2) * lineHeight);
       text(playerScore, screenWidth * 0.5, startY + (i + 2) * lineHeight);
-      text(playerTime, screenWidth * 0.7, startY + (i + 2) * lineHeight);
+      text(formattedTime, screenWidth * 0.7, startY + (i + 2) * lineHeight);
     }
   }
   drawButton(7, buttonsMenu[4][0], buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
