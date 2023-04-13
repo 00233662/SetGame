@@ -99,8 +99,19 @@ void displayMessage() {
 }
 
 void displayGameOverMessage() {
+  fill(0, 0, 0, 150);
+  rect(0, 0, width, height);
+
   textAlign(CENTER, CENTER);
   textSize(32);
-  fill(TEXT_1);
-  text("Game Over", screenWidth / 2, screenHeight / 2);
+  fill(255, 255, 255);
+  text("Game Over", width / 2, 100);
+  text("Time: " + nf(elapsedTime / 60000) + ":" + nf((elapsedTime / 1000) % 60, 2), width / 2, 150);
+  text("Score: " + playerScore, width / 2, 200);
+
+  textSize(24);
+  text("Enter your name:", width / 2, 250);
+  text(typedText + (millis() % 1000 < 500 ? "_" : ""), width / 2, 300);
+
+  text("Press Enter to save your score", width / 2, 400);
 }

@@ -51,6 +51,9 @@ void handleMenuButtons() {
       switch (buttonIndex) {
         case 0:
           screen = CARDS27SET;
+          gridRows = 3;
+          gridCols = 3;
+          usingShades = false;
           break;
         case 1:
           screen = GAMEMODE;
@@ -78,9 +81,17 @@ void handleModeButtons() {
       switch (buttonIndex) {
         case 0:
           screen = CARDS27SET;
+          board = new int[9][NUM_FEATURES];
+          gridRows = 3;
+          gridCols = 3;
+          usingShades = false;
           break;
         case 1:
           screen = CARDS81SET;
+          board = new int[12][NUM_FEATURES];
+          gridRows = 4;
+          gridCols = 3;
+          usingShades = true;
           break;
         case 2:
           screen = LEADERBOARD;

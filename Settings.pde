@@ -4,6 +4,7 @@ Imports
 import java.util.Collections;
 import java.util.Arrays;
 import java.util.List;
+import java.io.*;
 
 /*
 Constants
@@ -71,12 +72,14 @@ int gridRows = 3;
 int gridCols = 3;
 
 ArrayList<String> uniqueCards = new ArrayList<String>();
-int[][] board = new int[9][NUM_FEATURES];
+int[][] board = new int[12][NUM_FEATURES];
 ArrayList<String> graveyard = new ArrayList<String>();
 int[][] selectedCards = new int[3][NUM_FEATURES];
 int deckIndex = 0;
 boolean[] selectedCardIndices = new boolean[15];
 int numSelectedCards = 0;
 
+String playerName = "";
+String typedText = "";
 String showMessage = "";
 int messageDisplayTime = 0;
