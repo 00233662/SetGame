@@ -36,7 +36,7 @@ void draw() {
   
   // Play your gamemode
   if(screen == CARDS27SET || screen == CARDS81SET)
-    playSetGame();
+    playSetGame(usingShades);
   
   // Rules
   if(screen == RULES)

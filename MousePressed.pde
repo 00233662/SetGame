@@ -24,7 +24,7 @@ void mousePressed() {
 }
 
 void handleCardSelection() {
-  if (isPaused) {
+  if (isPaused || gameEnded) {
     return;
   }
   

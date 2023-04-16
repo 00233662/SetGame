@@ -78,9 +78,9 @@ void screenLeaderBoard() {
       String playerScore = data[1].trim();
       String playerTime = data[2].trim();
 
-      var millis = Long.parseLong(playerTime);
-      var minutes = (millis / 1000) / 60;
-      var seconds = (millis / 1000) % 60;
+      long millis = Long.parseLong(playerTime);
+      long minutes = (millis / 1000) / 60;
+      long seconds = (millis / 1000) % 60;
       String formattedTime = String.format("%02d:%02d", minutes, seconds);
       
       textSize(TEXT_16);

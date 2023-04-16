@@ -44,7 +44,6 @@ void displayCards(int index, int col, int row) {
   }
 }
 
-
 void displayCard(PImage img, int col, int row) {
   image(img, col * (cardWidth + 10) + 100, row * (cardHeight + 10) + 50, cardWidth, cardHeight);
 }

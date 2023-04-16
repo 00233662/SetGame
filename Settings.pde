@@ -72,7 +72,7 @@ int gridRows = 3;
 int gridCols = 3;
 
 ArrayList<String> uniqueCards = new ArrayList<String>();
-int[][] board = new int[12][NUM_FEATURES];
+int[][] board = new int[9][NUM_FEATURES];
 ArrayList<String> graveyard = new ArrayList<String>();
 int[][] selectedCards = new int[3][NUM_FEATURES];
 int deckIndex = 0;

@@ -1,18 +1,10 @@
 /*
-Deze functie initialiseert de lijsten coloring, shapes en shading met verschillende kleuren, vormen en shading.
+Deze functie initialiseert de arrays coloring, shapes en shading met verschillende kleuren, vormen en shading.
 */
 void setupCardValues() {
-  coloring.add("blauw");
-  coloring.add("groen");
-  coloring.add("rood");
- 
-  shapes.add("kronkel");
-  shapes.add("ovaal");
-  shapes.add("ruit");
-  
-  shading.add("vol");
-  shading.add("halfvol");
-  shading.add("leeg");
+  coloring.addAll(Arrays.asList("blauw", "groen", "rood"));
+  shapes.addAll(Arrays.asList("kronkel", "ovaal", "ruit"));
+  shading.addAll(Arrays.asList("vol", "halfvol", "leeg"));
 }
 
 /*
@@ -23,34 +15,29 @@ void setupCards() {
   for (int colors = 0; colors < coloring.size(); colors++) {
     for (int shape = 0; shape < shapes.size(); shape++) {
       for (int number = 0; number < maxNumber; number++) {
-        if (usingShades) {
-          createCardsWithShading(colors, shape, number);
-        } else {
-          createCardWithoutShading(colors, shape, number);
-        }
+        createCards(colors, shape, number);
       }
     }
   }
   Collections.shuffle(uniqueCards);
 }
 
-void createCardsWithShading(int colors, int shape, int number) {
-  for (int shade = 0; shade < shading.size(); shade++) {
-    String cardKey = generateCardKey(colors, shape, number, shade);
+void createCards(int colors, int shape, int number) {
+  if (usingShades) {
+    for (int shade = 0; shade < shading.size(); shade++) {
+      String cardKey = generateCardKey(colors, shape, number, shading.get(shade));
+      uniqueCards.add(cardKey);
+    }
+  } else {
+    String cardKey = generateCardKey(colors, shape, number, "vol");
     uniqueCards.add(cardKey);
   }
 }
 
-void createCardWithoutShading(int colors, int shape, int number) {
-  String cardKey = generateCardKey(colors, shape, number, -1);
-  uniqueCards.add(cardKey);
-}
-
-String generateCardKey(int colors, int shape, int number, int shade) {
+String generateCardKey(int colors, int shape, int number, String shadingName) {
   String colorName = coloring.get(colors);
   String shapeName = shapes.get(shape);
   int numbers = number + 1;
-  String shadingName = shade == -1 ? "vol" : shading.get(shade);
 
   return colorName + "_" + shapeName + "_" + numbers + "_" + shadingName;
 }
@@ -79,7 +66,7 @@ int[] extractCardFeatures(String card) {
   cardFeatures[0] = getIndexFromList(card, coloring);
   cardFeatures[1] = getIndexFromList(card, shapes);
   cardFeatures[2] = getIndexFromNumber(card);
-  cardFeatures[3] = usingShades ? getIndexFromList(card, shading) : 0;
+  cardFeatures[3] = usingShades ? getIndexFromList(card, shading) : -1;
   return cardFeatures;
 }
 
