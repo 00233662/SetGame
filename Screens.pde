@@ -43,7 +43,7 @@ void screenRules() {
   drawTable();
   textSize(TEXT_16);
   textAlign(CENTER, CENTER);
-  fill(TEXT_2);
+  fill(TEXT_1);
   
   float lineHeight = TEXT_16;
   float startY = screenHeight * 0.1;
@@ -61,7 +61,7 @@ void screenLeaderBoard() {
   drawTable();
   textSize(TEXT_20);
   textAlign(CENTER, CENTER);
-  fill(TEXT_2);
+  fill(TEXT_1);
 
   float lineHeight = TEXT_16;
   float startY = screenHeight * 0.1;

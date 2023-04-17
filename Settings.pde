@@ -56,7 +56,7 @@ Global variables
 */
 
 boolean usingShades = false; // veranderen voor de 27 of 81 kaart versie
-boolean gameEnded = false; // Einde van de game
+boolean gameEnded = false; // Einde van de game (end screen)
 boolean hintGiven = true;
 boolean hintUsedForCurrentSet = false;
 boolean gameInitialized = false;
