@@ -1,21 +1,7 @@
-void mousePressed() {
-  int[] clickedCell = getClickedCell();
-  int clickedRow = clickedCell[0];
-  int clickedCol = clickedCell[1];
-
-  if (isValidCell(clickedRow, clickedCol)) {
-    int clickedIndex = clickedRow * gridCols + clickedCol;
-    handleCardSelection(clickedIndex);
-  }
-
-  if (numSelectedCards == 3) {
-    processSelectedCards();
-  }
-}
 
 int[] getClickedCell() {
   int clickedRow = (mouseY - 50) / (cardHeight + 10);
-  int clickedCol = (mouseX - 50) / (cardWidth + 10);
+  int clickedCol = (mouseX - 100) / (cardWidth + 10);
   return new int[]{clickedRow, clickedCol};
 }
 
@@ -38,14 +24,18 @@ void handleCardSelection(int clickedIndex) {
 
 void processSelectedCards() {
   if (isValidSet(selectedCards)) {
-    println("Valid set!");
+    showMessage = "Correct set!";
+    messageDisplayTime = millis() + 2500;
     moveSelectedCardsToGraveyard();
-    updateSetCounts();
+    playerScore += 3;
+    hintUsedForCurrentSet = false;
   } else {
-    println("Invalid set!");
+    showMessage = "Incorrect set!";
+    messageDisplayTime = millis() + 2500;
   }
   resetSelection();
 }
+
 
 void selectCard(int clickedIndex) {
   selectedCards[numSelectedCards] = board[clickedIndex];

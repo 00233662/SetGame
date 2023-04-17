@@ -1,18 +1,10 @@
 /*
-Deze functie initialiseert de lijsten coloring, shapes en shading met verschillende kleuren, vormen en shading.
+Deze functie initialiseert de arrays coloring, shapes en shading met verschillende kleuren, vormen en shading.
 */
 void setupCardValues() {
-  coloring.add("blauw");
-  coloring.add("groen");
-  coloring.add("rood");
- 
-  shapes.add("kronkel");
-  shapes.add("ovaal");
-  shapes.add("ruit");
-  
-  shading.add("vol");
-  shading.add("halfvol");
-  shading.add("leeg");
+  coloring.addAll(Arrays.asList("blauw", "groen", "rood"));
+  shapes.addAll(Arrays.asList("kronkel", "ovaal", "ruit"));
+  shading.addAll(Arrays.asList("vol", "halfvol", "leeg"));
 }
 
 /*
@@ -23,34 +15,29 @@ void setupCards() {
   for (int colors = 0; colors < coloring.size(); colors++) {
     for (int shape = 0; shape < shapes.size(); shape++) {
       for (int number = 0; number < maxNumber; number++) {
-        if (usingShades) {
-          createCardsWithShading(colors, shape, number);
-        } else {
-          createCardWithoutShading(colors, shape, number);
-        }
+        createCards(colors, shape, number);
       }
     }
   }
   Collections.shuffle(uniqueCards);
 }
 
-void createCardsWithShading(int colors, int shape, int number) {
-  for (int shade = 0; shade < shading.size(); shade++) {
-    String cardKey = generateCardKey(colors, shape, number, shade);
+void createCards(int colors, int shape, int number) {
+  if (usingShades) {
+    for (int shade = 0; shade < shading.size(); shade++) {
+      String cardKey = generateCardKey(colors, shape, number, shading.get(shade));
+      uniqueCards.add(cardKey);
+    }
+  } else {
+    String cardKey = generateCardKey(colors, shape, number, "vol");
     uniqueCards.add(cardKey);
   }
 }
 
-void createCardWithoutShading(int colors, int shape, int number) {
-  String cardKey = generateCardKey(colors, shape, number, -1);
-  uniqueCards.add(cardKey);
-}
-
-String generateCardKey(int colors, int shape, int number, int shade) {
+String generateCardKey(int colors, int shape, int number, String shadingName) {
   String colorName = coloring.get(colors);
   String shapeName = shapes.get(shape);
   int numbers = number + 1;
-  String shadingName = shade == -1 ? "vol" : shading.get(shade);
 
   return colorName + "_" + shapeName + "_" + numbers + "_" + shadingName;
 }
@@ -102,13 +89,27 @@ int getIndexFromNumber(String card) {
 }
 
 boolean isSet(int[] card1, int[] card2, int[] card3) {
-    for (int feature = 0; feature < NUM_FEATURES; feature++) {
-        if (!((card1[feature] == card2[feature] && card2[feature] == card3[feature]) ||
-            (card1[feature] != card2[feature] && card2[feature] != card3[feature] && card1[feature] != card3[feature]))) {
-            return false;
-        }
+  if (isCardEmpty(card1) || isCardEmpty(card2) || isCardEmpty(card3)) {
+    return false;
+  }
+
+  final int NUM_FEATURES = 4;
+  for (int feature = 0; feature < NUM_FEATURES; feature++) {
+    if (!((card1[feature] == card2[feature] && card2[feature] == card3[feature]) ||
+        (card1[feature] != card2[feature] && card2[feature] != card3[feature] && card1[feature] != card3[feature]))) {
+      return false;
     }
-    return true;
+  }
+  return true;
+}
+
+boolean isCardEmpty(int[] card) {
+  for (int feature : card) {
+    if (feature != 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 boolean isValidSet(int[][] selectedCards) {
@@ -123,4 +124,42 @@ boolean isValidSet(int[][] selectedCards) {
 boolean validFeature(int[][] cards, int featureIndex) {  
   return (cards[0][featureIndex] == cards[1][featureIndex] && cards[1][featureIndex] == cards[2][featureIndex]) ||
          (cards[0][featureIndex] != cards[1][featureIndex] && cards[1][featureIndex] != cards[2][featureIndex] && cards[0][featureIndex] != cards[2][featureIndex]);
+}
+
+void giveHint() {
+  resetSelection();
+
+  int[] cardIndices = findSet();
+
+  if (cardIndices != null) {
+    selectedCardIndices[cardIndices[0]] = true;
+    selectedCardIndices[cardIndices[1]] = true;
+    numSelectedCards = 2;
+    hintGiven = true;
+
+    if (!hintUsedForCurrentSet) {
+      playerScore = max(playerScore - 3, -3);
+      hintUsedForCurrentSet = true;
+    }
+  }
+}
+
+int[] findSet() {
+  for (int card1 = 0; card1 < board.length; card1++) {
+    for (int card2 = 0; card2 < board.length; card2++) {
+      if (Arrays.equals(board[card1], board[card2])) {
+        continue;
+      }
+      for (int card3 = 0; card3 < board.length; card3++) {
+        if (Arrays.equals(board[card2], board[card3])) {
+          continue;
+        }
+        int[][] cardsCombination = { board[card1], board[card2], board[card3] };
+        if (isValidSet(cardsCombination)) {
+          return new int[]{ card1, card2 };
+        }
+      }
+    }
+  }
+  return null;
 }

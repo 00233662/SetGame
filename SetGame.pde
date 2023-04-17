@@ -12,12 +12,36 @@ De functie setup() wordt ook opgeroepen bij het opstarten van de applicatie.
 void setup() {
   setupCardValues();
   setupCards();
+  setupButtons();
   dealCards();
-  calculateSets();
+  startTime = millis();
 }
 
+/*#########################
+screen MENU = 0
+screen GAMEMODE = 1
+screen CARDS27SET = 2
+screen CARDS81SET = 3
+screen RULES = 4
+screen LEADERBOARD = 5
+#########################*/
+
 void draw() {
-  background(0);
-  displayBoard();
-  displaySetCounts();
+  if(screen == MENU)
+    screenMenu();
+    
+  // Choose game mode 
+  if(screen == GAMEMODE)
+    screenGameMode();
+  
+  // Play your gamemode
+  if(screen == CARDS27SET || screen == CARDS81SET)
+    playSetGame(usingShades);
+  
+  // Rules
+  if(screen == RULES)
+    screenRules();
+    
+  if(screen == LEADERBOARD)
+    screenLeaderBoard();
 }

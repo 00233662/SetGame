@@ -1,0 +1,22 @@
+Rules
+
+In the Set card game, the deck consists of cards with 4 
+features: shape, color, number, and shading. 
+The objective is to find "sets" of 3 cards from the 9 or 12 
+cards on the table. A set consists of three cards that, 
+for each feature, are either all the same or all different.
+
+
+Here's how to play the game:
+
+1. Choose a game mode: 27 or 81 cards
+
+2. Player search for sets among the face-up cards.
+
+3. When a player identifies a set, they click on the cards
+
+4. When you found a set, you earn points
+
+5. If you can't find anymore sets you can click the +3 button for 3 more cards.
+
+6. The game ends when there are no cards in the deck or no sets on the table.
