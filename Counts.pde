@@ -41,3 +41,13 @@ int countCardsLeftInDeck() {
 void resetTimer() {
   startTime = millis();
 }
+
+boolean isGameEnded() {
+  if (countSetsOnBoard() == 0)  {
+    int setsOnBoard = countSetsOnBoard();
+    if (setsOnBoard == 0) {
+      return true;
+    }
+  }
+  return false;
+}

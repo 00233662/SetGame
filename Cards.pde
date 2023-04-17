@@ -66,7 +66,7 @@ int[] extractCardFeatures(String card) {
   cardFeatures[0] = getIndexFromList(card, coloring);
   cardFeatures[1] = getIndexFromList(card, shapes);
   cardFeatures[2] = getIndexFromNumber(card);
-  cardFeatures[3] = usingShades ? getIndexFromList(card, shading) : -1;
+  cardFeatures[3] = usingShades ? getIndexFromList(card, shading) : 0;
   return cardFeatures;
 }
 
@@ -143,7 +143,6 @@ void giveHint() {
     }
   }
 }
-
 
 int[] findSet() {
   for (int card1 = 0; card1 < board.length; card1++) {
