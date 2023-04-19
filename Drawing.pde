@@ -98,7 +98,7 @@ void displayMessage() {
 }
 
 void displayGameOverMessage() {
-  fill(0, 0, 0, 150);
+  fill(MENU_COLOR, 200);
   rect(0, 0, width, height);
 
   textAlign(CENTER, CENTER);
