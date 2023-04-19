@@ -59,6 +59,7 @@ boolean usingShades = false; // veranderen voor de 27 of 81 kaart versie
 boolean gameEnded = false; // Einde van de game (end screen)
 boolean hintGiven = true;
 boolean hintUsedForCurrentSet = false;
+//boolean extraCardsAdded = false;
 boolean gameInitialized = false;
 int playerScore = 0;
 int startTime;
@@ -78,6 +79,7 @@ int[][] selectedCards = new int[3][NUM_FEATURES];
 int deckIndex = 0;
 boolean[] selectedCardIndices = new boolean[15];
 int numSelectedCards = 0;
+
 
 String playerName = "";
 String typedText = "";

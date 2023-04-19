@@ -29,12 +29,24 @@ void processSelectedCards() {
     moveSelectedCardsToGraveyard();
     playerScore += 3;
     hintUsedForCurrentSet = false;
+
+    //if (extraCardsAdded) {
+    //  if (usingShades) {
+    //    board = new int[12][NUM_FEATURES];
+    //    gridRows = 4;
+    //  } else {
+    //    board = new int[9][NUM_FEATURES];
+    //    gridRows = 3;
+    //  }
+    //  extraCardsAdded = false;
+    //}
   } else {
     showMessage = "Incorrect set!";
     messageDisplayTime = millis() + 2500;
   }
   resetSelection();
 }
+
 
 
 void selectCard(int clickedIndex) {
@@ -86,7 +98,6 @@ int processSelectedCard(int index, int removedCards) {
     uniqueCards.set(index, null);
     removedCards++;
   }
-
   return removedCards;
 }
 

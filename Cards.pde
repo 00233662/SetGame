@@ -163,3 +163,16 @@ int[] findSet() {
   }
   return null;
 }
+
+//void addThreeCardsForOneRound() {
+//  if (!extraCardsAdded) {
+//    extraCardsAdded = true;
+//    if (usingShades) {
+//      board = new int[15][NUM_FEATURES];
+//      gridRows = 5;
+//    } else {
+//      board = new int[12][NUM_FEATURES];
+//      gridRows = 4;
+//    }
+//  }
+//}

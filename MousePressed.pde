@@ -138,7 +138,7 @@ void handleInGameButtons() {
           giveHint(); // give hint
           break;
         case 4:
-          exit(); // add 3 cards
+          // addThreeCardsForOneRound(); //add 3 cards
           break;
       }
     }
