@@ -1,6 +1,7 @@
 void keyPressed() {
   if (gameEnded && keyCode == ENTER) {
     if (!typedText.isEmpty()) {
+      playerName = typedText;
       saveScoreToFile(playerName, playerScore, elapsedTime, setsFound, usingShades);
       resetEndScreen();
     }
@@ -22,7 +23,6 @@ void resetEndScreen() {
   stoppedTime = false;
   typedText = "";
 }
-
 
 void saveScoreToFile(String playerName, int playerScore, int elapsedTime, int setsFound, boolean usingShades) {
   String leaderboardFilePath = usingShades ? "Overige/Leaderboard_81.txt" : "Overige/Leaderboard_27.txt";

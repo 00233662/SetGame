@@ -119,21 +119,30 @@ String[] sortLeaderboard(String[] leaderboard) {
 }
 
 Comparator<String> createLeaderboardComparator() {
-return new Comparator<String>() {
-  public int compare(String a, String b) {
-    String[] dataA = split(a, ',');
-    String[] dataB = split(b, ',');
+  return new Comparator<String>() {
+    public int compare(String a, String b) {
+      String[] dataA = split(a, ',');
+      String[] dataB = split(b, ',');
 
-    int scoreA = Integer.parseInt(dataA[3].trim());
-    int scoreB = Integer.parseInt(dataB[3].trim());
-    int elapsedTimeA = Integer.parseInt(dataA[1].trim());
-    int elapsedTimeB = Integer.parseInt(dataB[1].trim());
+      if (dataA.length < 4 || dataB.length < 4) {
+        return 0; // If the data is incomplete, consider both entries equal
+      }
 
-    if (scoreA != scoreB) {
-      return scoreB - scoreA;
-    } else {
-      return elapsedTimeA - elapsedTimeB; 
-     }
-   }
- };
+      try {
+        int scoreA = Integer.parseInt(dataA[3].trim());
+        int scoreB = Integer.parseInt(dataB[3].trim());
+        int elapsedTimeA = Integer.parseInt(dataA[1].trim());
+        int elapsedTimeB = Integer.parseInt(dataB[1].trim());
+
+        if (scoreA != scoreB) {
+          return scoreB - scoreA;
+        } else {
+          return elapsedTimeA - elapsedTimeB;
+        }
+      } catch (NumberFormatException e) {
+        println("Error parsing leaderboard data: " + e.getMessage());
+        return 0; // If there's a parsing error, consider both entries equal
+      }
+    }
+  };
 }
