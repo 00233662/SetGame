@@ -15,6 +15,7 @@ void playSetGame(boolean usingShades) {
     graveyard.clear();
     resetSelection();
     setupCards();
+    setsFound = 0;
     deckIndex = 0;
     playerScore = 0;
 

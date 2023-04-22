@@ -77,15 +77,18 @@ void displayTimer() {
   textSize(24);
   fill(TEXT_1); 
   String timerText = nf(minutes, 2) + ":" + nf(seconds, 2);
-  text(timerText, screenWidth * 0.89, screenHeight * 0.3); 
+  text(timerText, screenWidth * 0.89, screenHeight * 0.34); 
 }
 
 void displayScore() {
+  int setsFound = countSetsPlayerGot();
   textAlign(RIGHT);
   textSize(24);
   fill(TEXT_1);
   String scoreText = "Score: " + playerScore;
-  text(scoreText, screenWidth * 0.89, screenHeight * 0.26);
+  text(scoreText, screenWidth * 0.89, screenHeight * 0.3);
+  String setsFoundText = "Sets Found: " + setsFound;
+  text(setsFoundText, screenWidth * 0.89, screenHeight * 0.26);
 }
 
 void displayMessage() {
@@ -100,17 +103,22 @@ void displayMessage() {
 void displayGameOverMessage() {
   fill(MENU_COLOR, 200);
   rect(0, 0, width, height);
-
+  
   textAlign(CENTER, CENTER);
-  textSize(32);
-  fill(255, 255, 255);
-  text("Game Over", width / 2, 100);
-  text("Time: " + nf(elapsedTime / 60000) + ":" + nf((elapsedTime / 1000) % 60, 2), width / 2, 150);
-  text("Score: " + playerScore, width / 2, 200);
+  textSize(TEXT_TITEL);
+  fill(HAN_ROZE);
+  text("Game Over", width / 2, height * 0.15);
 
-  textSize(24);
-  text("Enter your name:", width / 2, 250);
-  text(typedText + (millis() % 1000 < 500 ? "_" : ""), width / 2, 300);
+ 
+  textSize(TEXT_28);
+  fill(TEXT_2);
+  text("Time: " + nf(elapsedTime / 60000) + ":" + nf((elapsedTime / 1000) % 60, 2), width / 2, height * 0.4);
+  text("Sets Found: " + setsFound, width / 2, height * 0.47);
+  text("Score: " + playerScore, width / 2, height * 0.54);
 
-  text("Press Enter to save your score", width / 2, 400);
+  textSize(TEXT_20);
+  text("Enter your name:", width / 2, height * 0.70);
+  text(typedText + (millis() % 1000 < 500 ? "_" : ""), width / 2, height * 0.75);
+
+  text("Press Enter to save your score", width / 2, height * 0.85);
 }

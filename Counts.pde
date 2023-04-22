@@ -29,6 +29,9 @@ boolean isCardInGraveyard(int index) {
   return graveyard.contains(card);
 }
 
+int countSetsPlayerGot() {
+  return setsFound;
+}
 
 int countCardsInGraveyard() {
   return graveyard.size();

@@ -54,39 +54,41 @@ void screenRules() {
   drawButton(7, buttonsMenu[4][0], buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
 }
 
-
 void screenLeaderBoard() {
   drawTable();
   String[] leaderboard = loadStrings("Overige/Leaderboard.txt");
   drawTable();
-  textSize(TEXT_20);
+  textSize(TEXT_28);
   textAlign(CENTER, CENTER);
   fill(TEXT_1);
 
-  float lineHeight = TEXT_16;
+  float lineHeight = TEXT_20;
   float startY = screenHeight * 0.1;
 
-  text("Player", screenWidth * 0.3, startY);
-  text("Score", screenWidth * 0.5, startY);
-  text("Time", screenWidth * 0.7, startY);
+  text("Player", screenWidth * 0.25, startY);
+  text("Sets", screenWidth * 0.45, startY);
+  text("Score", screenWidth * 0.6, startY);
+  text("Time", screenWidth * 0.75, startY);
 
   for (int i = 0; i < leaderboard.length; i++) {
     String[] data = split(leaderboard[i], ',');
 
-    if (data.length == 3) {
+    if (data.length == 4) {
       String playerName = data[0].trim();
-      String playerScore = data[1].trim();
-      String playerTime = data[2].trim();
+      String elapsedTime = data[1].trim();
+      String setsFound = data[2].trim();
+      String playerScore = data[3].trim();
 
-      long millis = Long.parseLong(playerTime);
+      long millis = Long.parseLong(elapsedTime);
       long minutes = (millis / 1000) / 60;
       long seconds = (millis / 1000) % 60;
       String formattedTime = String.format("%02d:%02d", minutes, seconds);
-      
-      textSize(TEXT_16);
-      text(playerName, screenWidth * 0.3, startY + (i + 2) * lineHeight);
-      text(playerScore, screenWidth * 0.5, startY + (i + 2) * lineHeight);
-      text(formattedTime, screenWidth * 0.7, startY + (i + 2) * lineHeight);
+
+      textSize(TEXT_20);
+      text(playerName, screenWidth * 0.25, startY + (i + 3) * lineHeight);
+      text(setsFound, screenWidth * 0.45, startY + (i + 3) * lineHeight);
+      text(playerScore, screenWidth * 0.6, startY + (i + 3) * lineHeight);
+      text(formattedTime, screenWidth * 0.75, startY + (i + 3) * lineHeight);
     }
   }
   drawButton(7, buttonsMenu[4][0], buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);

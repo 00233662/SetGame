@@ -48,6 +48,7 @@ final float MENU_BUTTONHEIGHT = screenHeight / 10;
 //textSize
 final float TEXT_16 = 0.025 * screenWidth;
 final float TEXT_20 = 0.03125 * screenWidth;
+final float TEXT_28 = 0.043 * screenWidth;
 final float TEXT_48 = 0.075 * screenWidth;
 final float TEXT_TITEL = 0.225 * screenHeight;
 
@@ -62,6 +63,7 @@ boolean hintUsedForCurrentSet = false;
 //boolean extraCardsAdded = false;
 boolean gameInitialized = false;
 int playerScore = 0;
+int setsFound = 0;
 int startTime;
 int elapsedTime;
 boolean stoppedTime = false;

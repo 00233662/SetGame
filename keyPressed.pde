@@ -1,7 +1,7 @@
 void keyPressed() {
   if (gameEnded && keyCode == ENTER) {
     if (!typedText.isEmpty()) {
-      saveScoreToFile(typedText, playerScore, elapsedTime);
+      saveScoreToFile(typedText, playerScore, elapsedTime, setsFound);
       resetEndScreen();
     }
   } else if (gameEnded) {
@@ -26,7 +26,7 @@ void resetEndScreen() {
 
 void savePlayerScore() {
   String[] lines = loadStrings("Overige/Leaderboard.txt");
-  String newEntry = playerName + ", " + elapsedTime + ", " + playerScore;
+  String newEntry = playerName + ", " + elapsedTime + ", " + setsFound + ", " + playerScore;
   String[] newLines = new String[lines.length + 1];
   for (int i = 0; i < lines.length; i++) {
     newLines[i] = lines[i];
@@ -35,7 +35,7 @@ void savePlayerScore() {
   saveStrings("Leaderboard.txt", newLines);
 }
 
-void saveScoreToFile(String playerName, int playerScore, int elapsedTime) {
+void saveScoreToFile(String playerName, int playerScore, int elapsedTime, int setsFound) {
   String leaderboardFilePath = "Overige/Leaderboard.txt";
 
   try {
@@ -46,7 +46,7 @@ void saveScoreToFile(String playerName, int playerScore, int elapsedTime) {
       newLines[i] = existingLines[i];
     }
 
-    String dataToSave = playerName + "," + playerScore + "," + elapsedTime;
+    String dataToSave = playerName + "," + elapsedTime + "," + setsFound + "," + playerScore;
     newLines[existingLines.length] = dataToSave;
 
     saveStrings(leaderboardFilePath, newLines);

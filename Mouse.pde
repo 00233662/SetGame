@@ -28,6 +28,7 @@ void processSelectedCards() {
     messageDisplayTime = millis() + 2500;
     moveSelectedCardsToGraveyard();
     playerScore += 3;
+    setsFound++;
     hintUsedForCurrentSet = false;
 
     //if (extraCardsAdded) {
