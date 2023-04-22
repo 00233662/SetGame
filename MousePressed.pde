@@ -18,8 +18,10 @@ void mousePressed() {
   } else if (screen == CARDS81SET) {
     handleInGameButtons();
     handleCardSelection();
-  } else if (screen == RULES || screen == LEADERBOARD) {
-    handleBack4And5Buttons();
+  } else if (screen == RULES) {
+    handleBackButton();
+  } else if (screen == LEADERBOARD) {
+    handleLeaderBoard();
   }
 }
 
@@ -98,7 +100,7 @@ void handleModeButtons() {
   }
 }
 
-void handleBack4And5Buttons() {
+void handleBackButton() {
   float x = buttonsMenu[4][0];
   float y = buttonsMenu[4][1];
   float width = buttonsMenu[4][2];
@@ -108,6 +110,22 @@ void handleBack4And5Buttons() {
     screen = MENU;
   }
 }
+
+void handleLeaderBoard() {
+  float x = screenWidth * 0.3;
+  float buttonx = screenWidth * 0.7;
+  
+  
+  if (buttonPressed(buttonx, buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3])) {
+    screen = MENU;
+  }
+  if (buttonPressed(x, buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3])) {
+    toggleLeaderboard();
+    screenLeaderBoard();
+  }
+}
+
+
 
 void handleInGameButtons() {
   for (int buttonIndex = 0; buttonIndex < buttonsInGame.length; buttonIndex++) {

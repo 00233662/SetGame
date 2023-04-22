@@ -54,9 +54,14 @@ void screenRules() {
   drawButton(7, buttonsMenu[4][0], buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
 }
 
+
+
 void screenLeaderBoard() {
   drawTable();
-  String[] leaderboard = loadStrings("Overige/Leaderboard.txt");
+  String leaderboardFilePath = usingShades ? "Overige/Leaderboard_81.txt" : "Overige/Leaderboard_27.txt";
+  String[] leaderboard = loadStrings(leaderboardFilePath);
+  leaderboard = sortLeaderboard(leaderboard);
+
   drawTable();
   textSize(TEXT_28);
   textAlign(CENTER, CENTER);
@@ -91,5 +96,42 @@ void screenLeaderBoard() {
       text(formattedTime, screenWidth * 0.75, startY + (i + 3) * lineHeight);
     }
   }
-  drawButton(7, buttonsMenu[4][0], buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
+  drawButton(7, screenWidth * 0.7, buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
+  if (usingShades) {
+    drawButton(5, screenWidth * 0.3, screenHeight * 0.88, buttonsMenu[4][2], buttonsMenu[4][3]);
+  } else {
+    drawButton(4, screenWidth * 0.3, screenHeight * 0.88, buttonsMenu[4][2], buttonsMenu[4][3]);
+  }
+}
+
+void toggleLeaderboard() {
+  usingShades = !usingShades;
+  leaderboardChanged = true;
+}
+
+
+String[] sortLeaderboard(String[] leaderboard) {
+  Comparator<String> customComparator = createLeaderboardComparator();
+  Arrays.sort(leaderboard, customComparator);
+  return leaderboard;
+}
+
+Comparator<String> createLeaderboardComparator() {
+return new Comparator<String>() {
+  public int compare(String a, String b) {
+    String[] dataA = split(a, ',');
+    String[] dataB = split(b, ',');
+
+    int scoreA = Integer.parseInt(dataA[3].trim());
+    int scoreB = Integer.parseInt(dataB[3].trim());
+    int elapsedTimeA = Integer.parseInt(dataA[1].trim());
+    int elapsedTimeB = Integer.parseInt(dataB[1].trim());
+
+    if (scoreA != scoreB) {
+      return scoreB - scoreA;
+    } else {
+      return elapsedTimeA - elapsedTimeB; 
+     }
+   }
+ };
 }

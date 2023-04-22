@@ -1,6 +1,7 @@
 /*
 Imports
 */
+import java.util.Comparator;
 import java.util.Collections;
 import java.util.Arrays;
 import java.util.List;
@@ -68,6 +69,7 @@ int startTime;
 int elapsedTime;
 boolean stoppedTime = false;
 boolean isPaused = false;
+boolean leaderboardChanged = false;
 
 int cardWidth = screenWidth / 6;
 int cardHeight = (cardWidth / 3) * 2;

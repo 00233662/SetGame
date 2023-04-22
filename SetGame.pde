@@ -1,3 +1,12 @@
+/*#########################
+screen MENU = 0
+screen GAMEMODE = 1
+screen CARDS27SET = 2
+screen CARDS81SET = 3
+screen RULES = 4
+screen LEADERBOARD = 5
+#########################*/
+
 /*
 De functie settings() wordt aangeroepen bij het opstarten van de applicatie en 
 zorgt ervoor dat het scherm de grootte krijgt van screenWidth en screenHeight.
@@ -17,14 +26,6 @@ void setup() {
   startTime = millis();
 }
 
-/*#########################
-screen MENU = 0
-screen GAMEMODE = 1
-screen CARDS27SET = 2
-screen CARDS81SET = 3
-screen RULES = 4
-screen LEADERBOARD = 5
-#########################*/
 
 void draw() {
   if(screen == MENU)
