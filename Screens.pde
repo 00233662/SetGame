@@ -74,8 +74,10 @@ void screenLeaderBoard() {
   text("Sets", screenWidth * 0.45, startY);
   text("Score", screenWidth * 0.6, startY);
   text("Time", screenWidth * 0.75, startY);
+  
+  int maxRows = 15;
 
-  for (int i = 0; i < leaderboard.length; i++) {
+  for (int i = 0; i < min(leaderboard.length, maxRows); i++) {
     String[] data = split(leaderboard[i], ',');
 
     if (data.length == 4) {
@@ -98,9 +100,9 @@ void screenLeaderBoard() {
   }
   drawButton(7, screenWidth * 0.7, buttonsMenu[4][1], buttonsMenu[4][2], buttonsMenu[4][3]);
   if (usingShades) {
-    drawButton(5, screenWidth * 0.3, screenHeight * 0.88, buttonsMenu[4][2], buttonsMenu[4][3]);
-  } else {
     drawButton(4, screenWidth * 0.3, screenHeight * 0.88, buttonsMenu[4][2], buttonsMenu[4][3]);
+  } else {
+    drawButton(5, screenWidth * 0.3, screenHeight * 0.88, buttonsMenu[4][2], buttonsMenu[4][3]);
   }
 }
 
