@@ -23,8 +23,8 @@ float[][] buttonsInGame = {
   {screenWidth * 0.2, screenHeight * 0.9, screenWidth * 0.20, screenHeight * 0.08},
   {screenWidth * 0.5, screenHeight * 0.9, screenWidth * 0.20, screenHeight * 0.08},
   {screenWidth * 0.8, screenHeight * 0.9, screenWidth * 0.20, screenHeight * 0.08},
-  {screenWidth * 0.8, screenHeight * 0.6, screenWidth * 0.20, screenHeight * 0.08},
-  {screenWidth * 0.8, screenHeight * 0.7, screenWidth * 0.20, screenHeight * 0.08}
+  {screenWidth * 0.8, screenHeight * 0.7, screenWidth * 0.20, screenHeight * 0.08},
+  //{screenWidth * 0.8, screenHeight * 0.7, screenWidth * 0.20, screenHeight * 0.08}
 };
 
 void drawButtonsInGame() {
